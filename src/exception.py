@@ -1,5 +1,5 @@
 import sys
-import logger
+from src.logger import logging
 
 def error_message_detail(error, error_detail:sys):
     _, _, exc_tb = error_detail.exc_info() ##exc.info here only third var exc_tb is imp rest not.
@@ -22,12 +22,12 @@ class CustomException(Exception):
     def __str__(self):
         return self.error_message
     
-# logger = logger.logging
+
 if __name__ == "__main__":
     try:
         a= 1/0
     except Exception as e:
-        logger.info("Divide by zero!!")
+        logging.info("Divide by zero!!")
         raise CustomException(e, sys)
     
 
